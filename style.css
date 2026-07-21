@@ -1,0 +1,805 @@
+/* =====================================================
+   Khobragade Computer Service Centre
+   Version 2 - Premium Style
+   Part A
+===================================================== */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:#f5f7fb;
+color:#222;
+line-height:1.6;
+overflow-x:hidden;
+}
+
+.container{
+width:90%;
+max-width:1200px;
+margin:auto;
+}
+
+a{
+text-decoration:none;
+transition:.3s;
+}
+
+img{
+max-width:100%;
+display:block;
+}
+
+ul{
+list-style:none;
+}
+
+/* ================= HEADER ================= */
+
+.header{
+position:sticky;
+top:0;
+left:0;
+width:100%;
+background:#ffffff;
+box-shadow:0 4px 15px rgba(0,0,0,.08);
+z-index:999;
+}
+
+.header .container{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 0;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:10px;
+font-size:24px;
+font-weight:700;
+color:#0b8f3c;
+}
+
+.logo i{
+font-size:28px;
+}
+
+.navbar ul{
+display:flex;
+gap:28px;
+}
+
+.navbar a{
+font-weight:600;
+color:#333;
+}
+
+.navbar a:hover,
+.navbar a.active{
+color:#0b8f3c;
+}
+
+.menu-btn{
+display:none;
+font-size:28px;
+cursor:pointer;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+padding:80px 0;
+background:linear-gradient(135deg,#0b8f3c,#00b894);
+color:#fff;
+}
+
+.hero-container{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:40px;
+flex-wrap:wrap;
+}
+
+.hero-content{
+flex:1;
+min-width:300px;
+}
+
+.hero-image{
+flex:1;
+min-width:300px;
+}
+
+.badge{
+display:inline-block;
+background:#fff;
+color:#0b8f3c;
+padding:8px 16px;
+border-radius:30px;
+font-weight:600;
+margin-bottom:20px;
+}
+
+.hero h1{
+font-size:48px;
+line-height:1.2;
+margin-bottom:20px;
+}
+
+.hero p{
+font-size:18px;
+margin-bottom:30px;
+}
+/* ================= BUTTONS ================= */
+
+.hero-buttons{
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+}
+
+.btn{
+display:inline-block;
+padding:14px 28px;
+border-radius:8px;
+font-size:16px;
+font-weight:600;
+transition:.3s;
+}
+
+.btn-primary{
+background:#ffffff;
+color:#0b8f3c;
+}
+
+.btn-primary:hover{
+background:#222;
+color:#fff;
+transform:translateY(-3px);
+}
+
+.btn-secondary{
+background:transparent;
+border:2px solid #fff;
+color:#fff;
+}
+
+.btn-secondary:hover{
+background:#fff;
+color:#0b8f3c;
+}
+
+.btn-success{
+background:#25D366;
+color:#fff;
+}
+
+.btn-danger{
+background:#ff0000;
+color:#fff;
+}
+
+/* ================= QUICK SERVICES ================= */
+
+.quick-services{
+padding:80px 0;
+background:#fff;
+}
+
+.section-title{
+text-align:center;
+margin-bottom:50px;
+}
+
+.section-title h2{
+font-size:36px;
+color:#222;
+margin-bottom:10px;
+}
+
+.section-title p{
+color:#777;
+}
+
+.service-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.service-card{
+background:#fff;
+padding:30px;
+border-radius:15px;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+text-align:center;
+transition:.3s;
+}
+
+.service-card:hover{
+transform:translateY(-10px);
+}
+
+.service-card i{
+font-size:42px;
+color:#0b8f3c;
+margin-bottom:20px;
+}
+
+.service-card h3{
+margin-bottom:10px;
+}
+
+/* ================= ABOUT ================= */
+
+.about{
+padding:80px 0;
+background:#f7f7f7;
+}
+
+.about-content{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:40px;
+flex-wrap:wrap;
+}
+
+.about-text,
+.about-image{
+flex:1;
+min-width:300px;
+}
+
+.about-text ul{
+margin:25px 0;
+}
+
+.about-text li{
+margin-bottom:12px;
+font-weight:500;
+}
+
+/* ================= COUNTERS ================= */
+
+.counter-section{
+padding:70px 0;
+background:#0b8f3c;
+}
+
+.counter-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+}
+
+.counter-box{
+background:#fff;
+padding:30px;
+text-align:center;
+border-radius:15px;
+}
+
+.counter-box h2{
+font-size:40px;
+color:#0b8f3c;
+margin-bottom:10px;
+}
+/* ================= FEATURED SERVICES ================= */
+
+.featured-services{
+padding:80px 0;
+background:#ffffff;
+}
+
+.feature-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+}
+
+.feature-card{
+background:#fff;
+padding:30px;
+border-radius:18px;
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+transition:.35s;
+text-align:center;
+border-top:5px solid #0b8f3c;
+}
+
+.feature-card:hover{
+transform:translateY(-10px);
+box-shadow:0 20px 40px rgba(0,0,0,.15);
+}
+
+.feature-card i{
+font-size:48px;
+color:#0b8f3c;
+margin-bottom:20px;
+}
+
+.feature-card h3{
+font-size:24px;
+margin-bottom:15px;
+color:#222;
+}
+
+.feature-card p{
+color:#666;
+margin-bottom:20px;
+}
+
+.feature-card a{
+font-weight:600;
+color:#0b8f3c;
+}
+
+.feature-card a:hover{
+color:#065f28;
+}
+
+/* ================= CTA SECTION ================= */
+
+.cta-section{
+padding:80px 20px;
+text-align:center;
+background:linear-gradient(135deg,#0b8f3c,#00b894);
+color:#fff;
+}
+
+.cta-section h2{
+font-size:40px;
+margin-bottom:20px;
+}
+
+.cta-section p{
+max-width:700px;
+margin:0 auto 30px;
+font-size:18px;
+line-height:1.8;
+}
+
+/* ================= WHY CHOOSE US ================= */
+
+.why-choose-us{
+padding:80px 0;
+background:#f5f7fb;
+}
+
+.why-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+}
+
+.why-card{
+background:#fff;
+padding:35px;
+border-radius:18px;
+text-align:center;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+transition:.35s;
+}
+
+.why-card:hover{
+transform:translateY(-8px);
+}
+
+.why-card i{
+font-size:50px;
+color:#0b8f3c;
+margin-bottom:20px;
+}
+
+.why-card h3{
+font-size:24px;
+margin-bottom:15px;
+}
+
+.why-card p{
+color:#666;
+line-height:1.7;
+}
+
+/* ================= YOUTUBE SECTION ================= */
+
+.youtube-section{
+padding:80px 20px;
+text-align:center;
+background:#ffffff;
+}
+
+.youtube-section h2{
+font-size:36px;
+margin-bottom:15px;
+}
+
+.youtube-section p{
+max-width:700px;
+margin:0 auto 30px;
+color:#666;
+line-height:1.8;
+}
+/* ================= CONTACT SECTION ================= */
+
+.contact-section{
+padding:80px 0;
+background:#f8fafc;
+}
+
+.contact-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+}
+
+.contact-card{
+background:#fff;
+padding:35px;
+text-align:center;
+border-radius:18px;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+transition:.35s;
+}
+
+.contact-card:hover{
+transform:translateY(-10px);
+box-shadow:0 20px 40px rgba(0,0,0,.15);
+}
+
+.contact-card i{
+font-size:50px;
+color:#0b8f3c;
+margin-bottom:20px;
+}
+
+.contact-card h3{
+font-size:24px;
+margin-bottom:10px;
+color:#222;
+}
+
+.contact-card p{
+color:#666;
+margin-bottom:25px;
+line-height:1.7;
+}
+
+/* ================= FOOTER ================= */
+
+.footer{
+background:#0b8f3c;
+color:#fff;
+padding:30px 20px;
+text-align:center;
+}
+
+.footer p{
+font-size:15px;
+letter-spacing:.3px;
+}
+
+/* ================= FLOATING BUTTONS ================= */
+
+.floating-whatsapp,
+.floating-call{
+position:fixed;
+right:20px;
+width:60px;
+height:60px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:28px;
+color:#fff;
+z-index:999;
+box-shadow:0 10px 25px rgba(0,0,0,.25);
+transition:.3s;
+}
+
+.floating-whatsapp{
+bottom:95px;
+background:#25D366;
+}
+
+.floating-call{
+bottom:20px;
+background:#0b8f3c;
+}
+
+.floating-whatsapp:hover,
+.floating-call:hover{
+transform:scale(1.12);
+}
+
+/* ================= COMMON HOVER ================= */
+
+.feature-card,
+.service-card,
+.why-card,
+.contact-card,
+.counter-box{
+transition:.35s ease;
+}
+
+.feature-card:hover,
+.service-card:hover,
+.why-card:hover,
+.contact-card:hover,
+.counter-box:hover{
+transform:translateY(-8px);
+}
+/* ================= MOBILE RESPONSIVE ================= */
+
+@media (max-width:991px){
+
+.hero{
+padding:60px 0;
+}
+
+.hero-container,
+.about-content{
+flex-direction:column;
+text-align:center;
+}
+
+.hero h1{
+font-size:38px;
+}
+
+.section-title h2{
+font-size:30px;
+}
+
+.navbar{
+display:none;
+position:absolute;
+top:100%;
+left:0;
+width:100%;
+background:#fff;
+box-shadow:0 10px 20px rgba(0,0,0,.08);
+padding:20px 0;
+}
+
+.navbar.active{
+display:block;
+}
+
+.navbar ul{
+flex-direction:column;
+gap:18px;
+text-align:center;
+}
+
+.menu-btn{
+display:block;
+}
+
+.hero-buttons{
+justify-content:center;
+}
+
+}
+
+@media (max-width:768px){
+
+.container{
+width:94%;
+}
+
+.hero h1{
+font-size:32px;
+}
+
+.hero p{
+font-size:16px;
+}
+
+.section-title h2{
+font-size:28px;
+}
+
+.feature-grid,
+.service-grid,
+.why-grid,
+.contact-grid,
+.counter-grid{
+grid-template-columns:1fr;
+}
+
+.logo{
+font-size:18px;
+}
+
+.logo i{
+font-size:22px;
+}
+
+.btn{
+width:100%;
+text-align:center;
+}
+
+.hero-buttons{
+flex-direction:column;
+}
+
+.cta-section h2{
+font-size:30px;
+}
+
+.youtube-section h2{
+font-size:28px;
+}
+
+}
+
+@media (max-width:480px){
+
+.hero{
+padding:45px 0;
+}
+
+.hero h1{
+font-size:28px;
+}
+
+.hero p{
+font-size:15px;
+}
+
+.badge{
+font-size:13px;
+padding:6px 14px;
+}
+
+.section-title h2{
+font-size:24px;
+}
+
+.floating-whatsapp,
+.floating-call{
+width:55px;
+height:55px;
+font-size:24px;
+right:15px;
+}
+
+.floating-whatsapp{
+bottom:85px;
+}
+
+.floating-call{
+bottom:15px;
+}
+
+}
+/* =====================================================
+   PART F - FINAL PREMIUM FINISH
+===================================================== */
+
+/* Smooth Animation */
+@keyframes fadeUp{
+0%{
+opacity:0;
+transform:translateY(40px);
+}
+100%{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+.hero-content,
+.hero-image,
+.service-card,
+.feature-card,
+.why-card,
+.contact-card,
+.counter-box,
+.about-content{
+animation:fadeUp .8s ease;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar{
+width:10px;
+}
+
+::-webkit-scrollbar-track{
+background:#f1f1f1;
+}
+
+::-webkit-scrollbar-thumb{
+background:#0b8f3c;
+border-radius:20px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+background:#08702f;
+}
+
+/* Selection Color */
+::selection{
+background:#0b8f3c;
+color:#fff;
+}
+
+/* Image Hover */
+img{
+transition:.4s;
+}
+
+img:hover{
+transform:scale(1.03);
+}
+
+/* Button Hover */
+.btn{
+cursor:pointer;
+}
+
+.btn:hover{
+box-shadow:0 12px 30px rgba(0,0,0,.20);
+}
+
+/* Card Border Effect */
+.service-card,
+.feature-card,
+.why-card,
+.contact-card{
+border:1px solid transparent;
+}
+
+.service-card:hover,
+.feature-card:hover,
+.why-card:hover,
+.contact-card:hover{
+border-color:#0b8f3c;
+}
+
+/* Footer Links */
+.footer a{
+color:#fff;
+}
+
+.footer a:hover{
+text-decoration:underline;
+}
+
+/* Utility */
+.text-center{
+text-align:center;
+}
+
+.mt-20{
+margin-top:20px;
+}
+
+.mt-40{
+margin-top:40px;
+}
+
+.mb-20{
+margin-bottom:20px;
+}
+
+.mb-40{
+margin-bottom:40px;
+}
+
+/* ===== END OF STYLE.CSS ===== */
