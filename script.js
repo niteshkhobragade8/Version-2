@@ -1,332 +1,272 @@
+/* =====================================================
+   KHOBRAGADE COMPUTER SERVICE CENTRE
+   FINAL PREMIUM JAVASCRIPT
+   VERSION 1.0
+===================================================== */
+
 /* ==========================================
-Khobragade Computer Service Centre
-Version 2.0
-script.js
+   MOBILE MENU
 ========================================== */
 
-document.addEventListener("DOMContentLoaded", () => {
+const menuBtn = document.querySelector(".menu-toggle");
+const navMenu = document.querySelector("nav ul");
 
-    /* ==========================
-       Loader
-    ========================== */
+if(menuBtn && navMenu){
 
-    const loader = document.getElementById("loader");
+menuBtn.addEventListener("click",()=>{
 
-    window.addEventListener("load", () => {
-        if(loader){
-            loader.style.opacity = "0";
-
-            setTimeout(() => {
-                loader.style.display = "none";
-            },500);
-        }
-    });
-
-    /* ==========================
-       Back To Top
-    ========================== */
-
-    const backToTop = document.getElementById("backToTop");
-
-    window.addEventListener("scroll", () => {
-
-        if(backToTop){
-
-            if(window.scrollY > 400){
-                backToTop.style.display = "flex";
-            }else{
-                backToTop.style.display = "none";
-            }
-
-        }
-
-    });
-
-    if(backToTop){
-
-        backToTop.addEventListener("click",(e)=>{
-
-            e.preventDefault();
-
-            window.scrollTo({
-
-                top:0,
-
-                behavior:"smooth"
-
-            });
-
-        });
-
-    }
-
-    /* ==========================
-       Service Search
-    ========================== */
-
-    const search = document.getElementById("serviceSearch");
-
-    if(search){
-
-        search.addEventListener("keyup",function(){
-
-            const value=this.value.toLowerCase();
-
-            document.querySelectorAll(".service-box").forEach(card=>{
-
-                card.style.display=
-
-                card.innerText.toLowerCase().includes(value)
-
-                ?"block":"none";
-
-            });
-
-        });
-
-    }
+navMenu.classList.toggle("active");
 
 });
+
+}
+
 /* ==========================================
-COUNTER ANIMATION
+   SMOOTH SCROLL
 ========================================== */
 
-const counters = document.querySelectorAll(".stat-box h2");
+document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
 
-const counterObserver = new IntersectionObserver((entries)=>{
+anchor.addEventListener("click",function(e){
 
-entries.forEach(entry=>{
+e.preventDefault();
 
-if(entry.isIntersecting){
-
-const counter = entry.target;
-
-const target = counter.innerText.replace(/\D/g,"");
+const target=document.querySelector(this.getAttribute("href"));
 
 if(target){
 
-let count = 0;
+target.scrollIntoView({
 
-const speed = Math.ceil(target / 80);
+behavior:"smooth"
 
-const updateCounter = ()=>{
-
-count += speed;
-
-if(count >= target){
-
-counter.innerText = counter.innerText.replace(/\d+/,target);
-
-}else{
-
-counter.innerText = counter.innerText.replace(/\d+/,count);
-
-requestAnimationFrame(updateCounter);
-
-}
-
-};
-
-updateCounter();
-
-}
-
-counterObserver.unobserve(counter);
+});
 
 }
 
 });
-
-},{threshold:.5});
-
-counters.forEach(counter=>counterObserver.observe(counter));
-
-/* ==========================================
-STICKY HEADER SHADOW
-========================================== */
-
-const header = document.querySelector(".header");
-
-window.addEventListener("scroll",()=>{
-
-if(header){
-
-if(window.scrollY > 50){
-
-header.style.boxShadow="0 12px 30px rgba(0,0,0,.12)";
-
-}else{
-
-header.style.boxShadow="0 4px 20px rgba(0,0,0,.08)";
-
-}
-
-}
 
 });
 
 /* ==========================================
-FAQ TOGGLE
+   ACTIVE MENU
 ========================================== */
 
-document.querySelectorAll(".faq-item h3").forEach(item=>{
-
-item.style.cursor="pointer";
-
-item.addEventListener("click",()=>{
-
-const answer=item.nextElementSibling;
-
-if(answer){
-
-answer.style.display=
-
-answer.style.display==="none"?"block":"none";
-
-}
-
-});
-
-});
-
-document.querySelectorAll(".faq-item p").forEach(item=>{
-
-item.style.display="none";
-
-});
-
-/* ==========================================
-SCROLL ANIMATION
-========================================== */
-
-const animateItems=document.querySelectorAll(
-
-".service-box,.category-card,.update-card,.why-card,.testimonial-card,.stat-box"
-
-);
-
-const animationObserver=new IntersectionObserver((entries)=>{
-
-entries.forEach(entry=>{
-
-if(entry.isIntersecting){
-
-entry.target.style.opacity="1";
-
-entry.target.style.transform="translateY(0)";
-
-}
-
-});
-
-},{threshold:.15});
-
-animateItems.forEach(item=>{
-
-item.style.opacity="0";
-
-item.style.transform="translateY(40px)";
-
-item.style.transition=".7s";
-
-animationObserver.observe(item);
-
-});
-/* ==========================================
-MOBILE MENU
-========================================== */
-
-const mobileMenu=document.querySelector(".mobile-menu");
-const nav=document.querySelector("nav");
-
-if(mobileMenu && nav){
-
-mobileMenu.addEventListener("click",()=>{
-
-nav.classList.toggle("active");
-
-});
-
-}
-
-/* ==========================================
-ACTIVE MENU
-========================================== */
-
-const currentPage=window.location.pathname.split("/").pop();
+const currentPage=location.pathname.split("/").pop();
 
 document.querySelectorAll("nav a").forEach(link=>{
 
-const href=link.getAttribute("href");
-
-if(href===currentPage || (currentPage==="" && href==="index.html")){
+if(link.getAttribute("href")===currentPage){
 
 link.classList.add("active");
 
 }
 
 });
-
 /* ==========================================
-NEWSLETTER FORM
+   DARK MODE
 ========================================== */
 
-const newsletter=document.querySelector(".newsletter form");
+const darkBtn = document.querySelector(".dark-mode");
 
-if(newsletter){
+if (darkBtn) {
 
-newsletter.addEventListener("submit",(e)=>{
+darkBtn.addEventListener("click", () => {
 
-e.preventDefault();
+document.body.classList.toggle("dark");
 
-const email=newsletter.querySelector("input");
-
-const value=email.value.trim();
-
-const pattern=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-if(pattern.test(value)){
-
-alert("Thank you for subscribing!");
-
-newsletter.reset();
-
-}else{
-
-alert("Please enter a valid email address.");
-
-}
+localStorage.setItem("theme",
+document.body.classList.contains("dark")
+? "dark"
+: "light");
 
 });
 
 }
 
+if (localStorage.getItem("theme") === "dark") {
+
+document.body.classList.add("dark");
+
+}
+
 /* ==========================================
-LAZY IMAGE EFFECT
+   SCROLL TO TOP
 ========================================== */
 
-document.querySelectorAll("img").forEach(img=>{
+const topBtn = document.querySelector(".scroll-top");
 
-img.setAttribute("loading","lazy");
+window.addEventListener("scroll", () => {
+
+if (!topBtn) return;
+
+if (window.scrollY > 300) {
+
+topBtn.style.display = "flex";
+
+} else {
+
+topBtn.style.display = "none";
+
+}
+
+});
+
+if (topBtn) {
+
+topBtn.addEventListener("click", () => {
+
+window.scrollTo({
+
+top: 0,
+
+behavior: "smooth"
+
+});
+
+});
+
+}
+
+/* ==========================================
+   BUTTON RIPPLE EFFECT
+========================================== */
+
+document.querySelectorAll(".btn").forEach(button => {
+
+button.addEventListener("click", function () {
+
+this.classList.add("clicked");
+
+setTimeout(() => {
+
+this.classList.remove("clicked");
+
+}, 300);
+
+});
 
 });
 
 /* ==========================================
-COPYRIGHT YEAR
+   PAGE LOADER
 ========================================== */
 
-document.querySelectorAll(".current-year").forEach(el=>{
+window.addEventListener("load", () => {
 
-el.textContent=new Date().getFullYear();
+const loader = document.querySelector(".loader");
+
+if (loader) {
+
+loader.style.opacity = "0";
+
+setTimeout(() => {
+
+loader.style.display = "none";
+
+}, 500);
+
+}
+
+});
+/* ==========================================
+   LIVE SEARCH
+========================================== */
+
+const searchInput = document.querySelector(".search-input");
+
+if (searchInput) {
+
+searchInput.addEventListener("keyup", function () {
+
+const value = this.value.toLowerCase();
+
+document.querySelectorAll(".service-card").forEach(card => {
+
+const text = card.innerText.toLowerCase();
+
+card.style.display = text.includes(value) ? "block" : "none";
+
+});
+
+});
+
+}
+
+/* ==========================================
+   FAQ TOGGLE
+========================================== */
+
+document.querySelectorAll(".faq-item h3").forEach(item => {
+
+item.addEventListener("click", () => {
+
+const answer = item.nextElementSibling;
+
+if (!answer) return;
+
+answer.style.display =
+answer.style.display === "block" ? "none" : "block";
+
+});
 
 });
 
 /* ==========================================
-CONSOLE MESSAGE
+   COUNTER ANIMATION
 ========================================== */
 
-console.log("Khobragade Computer Service Centre Version 2.0 Loaded Successfully");
+document.querySelectorAll(".counter").forEach(counter => {
+
+const target = Number(counter.dataset.target) || 0;
+
+let count = 0;
+
+const speed = Math.max(1, Math.ceil(target / 100));
+
+const update = () => {
+
+if (count < target) {
+
+count += speed;
+
+if (count > target) count = target;
+
+counter.innerText = count;
+
+requestAnimationFrame(update);
+
+}
+
+};
+
+update();
+
+});
 
 /* ==========================================
-END OF SCRIPT.JS
+   WHATSAPP FLOATING BUTTON
 ========================================== */
+
+const whatsapp = document.querySelector(".whatsapp-float");
+
+if (whatsapp) {
+
+setInterval(() => {
+
+whatsapp.classList.toggle("pulse");
+
+}, 1000);
+
+}
+
+/* ==========================================
+   CURRENT YEAR
+========================================== */
+
+document.querySelectorAll(".current-year").forEach(year => {
+
+year.textContent = new Date().getFullYear();
+
+});
+
+console.log("Khobragade Computer Service Centre Website Loaded Successfully");
