@@ -1,112 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-<head>
+<url>
+<loc>https://niteshkhobragade8.github.io/Version-2/</loc>
+</url>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<url>
+<loc>https://niteshkhobragade8.github.io/Version-2/services.html</loc>
+</url>
 
-<title>Website Sitemap | Khobragade Computer Service Centre</title>
+<url>
+<loc>https://niteshkhobragade8.github.io/Version-2/contact.html</loc>
+</url>
 
-<link rel="stylesheet" href="style.css">
+<url>
+<loc>https://niteshkhobragade8.github.io/Version-2/documents.html</loc>
+</url>
 
-</head>
-
-<body>
-
-<section class="hero">
-
-<div class="container">
-
-<h1>Website Sitemap</h1>
-
-<p>Quick access to all website pages.</p>
-
-</div>
-
-</section>
-
-<section class="services">
-
-<div class="container">
-
-<h2 class="section-title">
-
-All Pages
-
-</h2>
-
-<div class="service-grid">
-
-<div class="service-card">
-<h3>Home</h3>
-<a href="index.html" class="btn btn-primary">Open</a>
-</div>
-
-<div class="service-card">
-<h3>Services</h3>
-<a href="services.html" class="btn btn-primary">Open</a>
-</div>
-
-<div class="service-card">
-<h3>Documents</h3>
-<a href="documents.html" class="btn btn-primary">Open</a>
-</div>
-
-<div class="service-card">
-<h3>Divyang</h3>
-<a href="divyang.html" class="btn btn-primary">Open</a>
-</div>
-
-<div class="service-card">
-<h3>Contact</h3>
-<a href="contact.html" class="btn btn-primary">Open</a>
-</div>
-
-<div class="service-card">
-<h3>Apply Online</h3>
-<a href="apply.html" class="btn btn-primary">Open</a>
-</div>
-
-<div class="service-card">
-<h3>Status Check</h3>
-<a href="status.html" class="btn btn-primary">Open</a>
-</div>
-
-<div class="service-card">
-<h3>Notice Board</h3>
-<a href="notice.html" class="btn btn-primary">Open</a>
-</div>
-
-<div class="service-card">
-<h3>Dashboard</h3>
-<a href="dashboard.html" class="btn btn-primary">Open</a>
-</div>
-
-<div class="service-card">
-<h3>Admin Panel</h3>
-<a href="admin.html" class="btn btn-primary">Open</a>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<footer>
-
-<div class="container">
-
-<p class="copyright">
-
-© 2026 Khobragade Computer Service Centre
-
-</p>
-
-</div>
-
-</footer>
-
-</body>
-</html>
+</urlset>
