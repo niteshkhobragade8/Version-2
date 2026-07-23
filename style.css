@@ -785,3 +785,80 @@ body{
 .service-card p{
     font-size:17px;
 }
+/* ===== Premium Service Cards ===== */
+
+.service-card{
+    background:#fff;
+    border-radius:20px;
+    padding:30px;
+    transition:.4s;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+}
+
+.service-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 20px 40px rgba(0,0,0,.18);
+}
+
+.service-card i{
+    font-size:50px;
+    color:#16a34a;
+    margin-bottom:20px;
+}
+
+.service-card .btn{
+    margin-top:20px;
+}
+/* ===== Premium Header ===== */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:999;
+    background:#ffffff;
+    box-shadow:0 2px 15px rgba(0,0,0,.08);
+}
+
+.logo img{
+    width:70px;
+}
+
+nav a{
+    font-size:17px;
+    font-weight:600;
+    color:#222;
+    transition:.3s;
+    text-decoration:none;
+    padding:10px 15px;
+}
+
+nav a:hover{
+    color:#16a34a;
+}
+
+nav a.active{
+    color:#16a34a;
+}
+/* ===== Premium Buttons ===== */
+
+.btn{
+    display:inline-block;
+    padding:14px 30px;
+    border-radius:50px;
+    font-size:16px;
+    font-weight:700;
+    text-decoration:none;
+    transition:.3s;
+    cursor:pointer;
+}
+
+.btn-primary{
+    background:#16a34a;
+    color:#fff;
+}
+
+.btn-primary:hover{
+    background:#15803d;
+    transform:translateY(-3px);
+    box-shadow:0 10px 25px rgba(22,163,74,.3);
+}
