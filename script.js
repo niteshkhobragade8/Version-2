@@ -1,31 +1,38 @@
 /* =====================================================
-   KHOBRAGADE COMPUTER SERVICE CENTRE
-   FINAL PREMIUM JAVASCRIPT
-   VERSION 1.0
+KHOBRAGADE COMPUTER SERVICE CENTRE
+PREMIUM SCRIPT
+VERSION 2.0
 ===================================================== */
 
+"use strict";
+
 /* ==========================================
-   MOBILE MENU
+PAGE LOADED
 ========================================== */
 
-const menuBtn = document.querySelector(".menu-toggle");
-const navMenu = document.querySelector("nav ul");
+window.addEventListener("load", function () {
 
-if(menuBtn && navMenu){
+const loader = document.getElementById("loader");
 
-menuBtn.addEventListener("click",()=>{
+if(loader){
 
-navMenu.classList.toggle("active");
+loader.style.opacity="0";
 
-});
+setTimeout(function(){
+
+loader.style.display="none";
+
+},500);
 
 }
 
+});
+
 /* ==========================================
-   SMOOTH SCROLL
+SMOOTH SCROLL
 ========================================== */
 
-document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
+document.querySelectorAll('a[href^="#"]').forEach(function(anchor){
 
 anchor.addEventListener("click",function(e){
 
@@ -46,14 +53,30 @@ behavior:"smooth"
 });
 
 });
-
 /* ==========================================
-   ACTIVE MENU
+MOBILE MENU
 ========================================== */
 
-const currentPage=location.pathname.split("/").pop();
+const menuToggle = document.querySelector(".menu-toggle");
+const navMenu = document.querySelector("nav ul");
 
-document.querySelectorAll("nav a").forEach(link=>{
+if(menuToggle && navMenu){
+
+menuToggle.addEventListener("click",function(){
+
+navMenu.classList.toggle("active");
+
+});
+
+}
+
+/* ==========================================
+ACTIVE MENU
+========================================== */
+
+const currentPage = location.pathname.split("/").pop();
+
+document.querySelectorAll("nav a").forEach(function(link){
 
 if(link.getAttribute("href")===currentPage){
 
@@ -62,64 +85,45 @@ link.classList.add("active");
 }
 
 });
-/* ==========================================
-   DARK MODE
-========================================== */
-
-const darkBtn = document.querySelector(".dark-mode");
-
-if (darkBtn) {
-
-darkBtn.addEventListener("click", () => {
-
-document.body.classList.toggle("dark");
-
-localStorage.setItem("theme",
-document.body.classList.contains("dark")
-? "dark"
-: "light");
-
-});
-
-}
-
-if (localStorage.getItem("theme") === "dark") {
-
-document.body.classList.add("dark");
-
-}
 
 /* ==========================================
-   SCROLL TO TOP
+HEADER SHADOW
 ========================================== */
 
-const topBtn = document.querySelector(".scroll-top");
+window.addEventListener("scroll",function(){
 
-window.addEventListener("scroll", () => {
+const header=document.querySelector(".header");
 
-if (!topBtn) return;
+if(!header) return;
 
-if (window.scrollY > 300) {
+if(window.scrollY>50){
 
-topBtn.style.display = "flex";
+header.style.boxShadow="0 8px 25px rgba(0,0,0,.12)";
 
-} else {
+}else{
 
-topBtn.style.display = "none";
+header.style.boxShadow="0 2px 20px rgba(0,0,0,.08)";
 
 }
 
 });
+/* ==========================================
+LIVE SEARCH
+========================================== */
 
-if (topBtn) {
+const searchInput = document.getElementById("serviceSearch");
 
-topBtn.addEventListener("click", () => {
+if(searchInput){
 
-window.scrollTo({
+searchInput.addEventListener("keyup",function(){
 
-top: 0,
+const value=this.value.toLowerCase();
 
-behavior: "smooth"
+document.querySelectorAll(".service-card").forEach(function(card){
+
+const text=card.innerText.toLowerCase();
+
+card.style.display=text.includes(value) ? "" : "none";
 
 });
 
@@ -128,145 +132,123 @@ behavior: "smooth"
 }
 
 /* ==========================================
-   BUTTON RIPPLE EFFECT
+FAQ TOGGLE
 ========================================== */
 
-document.querySelectorAll(".btn").forEach(button => {
+document.querySelectorAll(".faq-item h3").forEach(function(item){
 
-button.addEventListener("click", function () {
+item.addEventListener("click",function(){
 
-this.classList.add("clicked");
+const answer=this.nextElementSibling;
 
-setTimeout(() => {
+if(!answer) return;
 
-this.classList.remove("clicked");
-
-}, 300);
+answer.style.display=
+answer.style.display==="block" ? "none" : "block";
 
 });
 
 });
 
 /* ==========================================
-   PAGE LOADER
+COUNTER ANIMATION
 ========================================== */
 
-window.addEventListener("load", () => {
+document.querySelectorAll(".counter").forEach(function(counter){
 
-const loader = document.querySelector(".loader");
+const target=parseInt(counter.dataset.target)||0;
 
-if (loader) {
+let count=0;
 
-loader.style.opacity = "0";
+const speed=Math.max(1,Math.ceil(target/100));
 
-setTimeout(() => {
+function update(){
 
-loader.style.display = "none";
+if(count<target){
 
-}, 500);
+count+=speed;
 
-}
+if(count>target) count=target;
 
-});
-/* ==========================================
-   LIVE SEARCH
-========================================== */
-
-const searchInput = document.querySelector(".search-input");
-
-if (searchInput) {
-
-searchInput.addEventListener("keyup", function () {
-
-const value = this.value.toLowerCase();
-
-document.querySelectorAll(".service-card").forEach(card => {
-
-const text = card.innerText.toLowerCase();
-
-card.style.display = text.includes(value) ? "block" : "none";
-
-});
-
-});
-
-}
-
-/* ==========================================
-   FAQ TOGGLE
-========================================== */
-
-document.querySelectorAll(".faq-item h3").forEach(item => {
-
-item.addEventListener("click", () => {
-
-const answer = item.nextElementSibling;
-
-if (!answer) return;
-
-answer.style.display =
-answer.style.display === "block" ? "none" : "block";
-
-});
-
-});
-
-/* ==========================================
-   COUNTER ANIMATION
-========================================== */
-
-document.querySelectorAll(".counter").forEach(counter => {
-
-const target = Number(counter.dataset.target) || 0;
-
-let count = 0;
-
-const speed = Math.max(1, Math.ceil(target / 100));
-
-const update = () => {
-
-if (count < target) {
-
-count += speed;
-
-if (count > target) count = target;
-
-counter.innerText = count;
+counter.innerText=count;
 
 requestAnimationFrame(update);
 
 }
 
-};
+}
 
 update();
 
 });
-
 /* ==========================================
-   WHATSAPP FLOATING BUTTON
+BACK TO TOP
 ========================================== */
 
-const whatsapp = document.querySelector(".whatsapp-float");
+const backToTop = document.getElementById("backToTop");
 
-if (whatsapp) {
+window.addEventListener("scroll",function(){
 
-setInterval(() => {
+if(!backToTop) return;
 
-whatsapp.classList.toggle("pulse");
+if(window.scrollY>300){
 
-}, 1000);
+backToTop.style.display="flex";
+
+}else{
+
+backToTop.style.display="none";
+
+}
+
+});
+
+if(backToTop){
+
+backToTop.addEventListener("click",function(e){
+
+e.preventDefault();
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
+
+});
 
 }
 
 /* ==========================================
-   CURRENT YEAR
+FLOATING BUTTON ANIMATION
 ========================================== */
 
-document.querySelectorAll(".current-year").forEach(year => {
+const whatsappBtn=document.querySelector(".whatsapp-float");
 
-year.textContent = new Date().getFullYear();
+if(whatsappBtn){
+
+setInterval(function(){
+
+whatsappBtn.classList.toggle("pulse");
+
+},1000);
+
+}
+
+/* ==========================================
+CURRENT YEAR
+========================================== */
+
+document.querySelectorAll(".current-year").forEach(function(item){
+
+item.textContent=new Date().getFullYear();
 
 });
 
-console.log("Khobragade Computer Service Centre Website Loaded Successfully");
+/* ==========================================
+WEBSITE READY
+========================================== */
+
+console.log("✅ Khobragade Computer Service Centre Version 2 Loaded Successfully");
